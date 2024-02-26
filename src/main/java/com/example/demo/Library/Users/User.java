@@ -2,8 +2,22 @@ package com.example.demo.Library.Users;
 
 import com.example.demo.Library.Database.Database;
 import com.example.demo.Library.Interfaces.IOOperation;
+import jakarta.persistence.*;
+import org.springframework.web.bind.annotation.GetMapping;
 
+@Entity
+@Table
 public abstract class User {
+    @Id
+    @SequenceGenerator(
+            name = "user_sequence",
+            sequenceName = "user_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "user_sequence"
+    )
     protected String name;
     protected String email;
     protected String number;
