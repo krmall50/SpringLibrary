@@ -17,6 +17,7 @@ import lombok.Setter;
 @Setter
 @Entity
 public class ReturnBook implements IOOperation {
+    @jakarta.persistence.Id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -27,5 +28,13 @@ public class ReturnBook implements IOOperation {
         String name = s.next();
         database.returnBook(user, name);
         user.menu(database, user);
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
     }
 }
