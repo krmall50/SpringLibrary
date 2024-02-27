@@ -22,7 +22,7 @@ public class BorrowBook implements IOOperation {
     private Long id;
     @Override
     public void oper(Database database, User user) {
-        System.out.println("Enter name of the book");
+        System.out.println("Enter names of the book");
         Scanner s = new Scanner(System.in);
         String name = s.next();
         database.borrowBook(user, name);
