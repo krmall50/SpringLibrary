@@ -17,6 +17,7 @@ import java.util.Scanner;
 @Setter
 @Entity
 public class BorrowBook implements IOOperation {
+    @jakarta.persistence.Id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -27,5 +28,13 @@ public class BorrowBook implements IOOperation {
         String name = s.next();
         database.borrowBook(user, name);
         user.menu(database, user);
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
     }
 }

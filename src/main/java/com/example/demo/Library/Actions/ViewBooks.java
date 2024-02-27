@@ -15,6 +15,7 @@ import lombok.Setter;
 @Setter
 @Entity
 public class ViewBooks implements IOOperation {
+    @jakarta.persistence.Id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -23,5 +24,13 @@ public class ViewBooks implements IOOperation {
         Database database1 = new Database();
         database1.getBooks();
         user.menu(database, user);
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
     }
 }

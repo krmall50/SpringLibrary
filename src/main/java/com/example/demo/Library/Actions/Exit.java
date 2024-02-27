@@ -19,6 +19,7 @@ import java.util.Scanner;
 @Setter
 @Entity
 public class Exit implements IOOperation {
+    @jakarta.persistence.Id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -26,6 +27,14 @@ public class Exit implements IOOperation {
     @Override
     public void oper(Database database, User user) {
         System.out.println("Exiting...");
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
     }
 }
 

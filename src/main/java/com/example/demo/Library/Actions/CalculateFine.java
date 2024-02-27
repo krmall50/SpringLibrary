@@ -15,6 +15,7 @@ import lombok.Setter;
 @Setter
 @Entity
 public class CalculateFine implements IOOperation {
+    @jakarta.persistence.Id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -22,5 +23,13 @@ public class CalculateFine implements IOOperation {
     public void oper(Database database, User user) {
         System.out.println("You have no fine :)");
         user.menu(database, user);
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
     }
 }
