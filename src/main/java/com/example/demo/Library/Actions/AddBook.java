@@ -46,4 +46,5 @@ public class AddBook implements IOOperation {
                 book.getQty(), book.getPrice(), book.getBrwcopies());
         user.menu(database, user);
     }
+
 }
