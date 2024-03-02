@@ -47,37 +47,37 @@ public class BookController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    @GetMapping({"/number/{number}","/number/{number}/"})
+    @GetMapping({"/name/{name}","/name/{name}/"})
     public List<Book> getAllByName(@PathVariable("name") String name){
         return service.getByName(name);
     }
-    @GetMapping({"/number/{number}","/number/{number}/"})
+    @GetMapping({"/author/{author}","/author/{author}/"})
     public List<Book> getAllByAuthor(@PathVariable("author") String author){
-        return service.getByName(author);
+        return service.getByAuthor(author);
     }
-    @GetMapping({"/number/{number}","/number/{number}/"})
+    @GetMapping({"/publisher/{publisher}","/publisher/{publisher}/"})
     public List<Book> getAllByPublisher(@PathVariable("publisher") String publisher){
-        return service.getByName(publisher);
+        return service.getByPublisher(publisher);
     }
-    @GetMapping({"/number/{number}","/number/{number}/"})
+    @GetMapping({"/address/{address}","/address/{address}/"})
     public List<Book> getAllByAddress(@PathVariable("address") String address){
-        return service.getByName(address);
+        return service.getByAddress(address);
     }
-    @GetMapping({"/number/{number}","/number/{number}/"})
+    @GetMapping({"/status/{status}","/status/{status}/"})
     public List<Book> getAllByStatus(@PathVariable("status") String status){
-        return service.getByName(status);
+        return service.getByStatus(status);
     }
-    @GetMapping({"/number/{number}","/number/{number}/"})
-    public List<Book> getAllByQty(@PathVariable("qty") String qty){
-        return service.getByName(qty);
+    @GetMapping({"/qty/{qty}","/qty/{qty}/"})
+    public List<Book> getAllByQty(@PathVariable("qty") int qty){
+        return service.getByQty(qty);
     }
-    @GetMapping({"/number/{number}","/number/{number}/"})
-    public List<Book> getAllByPrice(@PathVariable("price") String price){
-        return service.getByName(price);
+    @GetMapping({"/price/{price}","/price/{price}/"})
+    public List<Book> getAllByPrice(@PathVariable("price") int price){
+        return service.getByPrice(price);
     }
-    @GetMapping({"/number/{number}","/number/{number}/"})
-    public List<Book> getAllByBrwcopies(@PathVariable("brwcopies") String brwcopies){
-        return service.getByName(brwcopies);
+    @GetMapping({"/brwcopies/{brwcopies}","/brwcopies/{brwcopies}/"})
+    public List<Book> getAllByBrwcopies(@PathVariable("brwcopies") int brwcopies){
+        return service.getByBrwcopies(brwcopies);
     }
 
 }

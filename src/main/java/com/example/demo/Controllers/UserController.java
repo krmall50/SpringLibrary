@@ -56,5 +56,9 @@ public class UserController {
     public List<User> getAllByNumber(@PathVariable("number") String number){
         return service.getByNumber(number);
     }
+    @GetMapping({"/email/{email}","/email/{email}/"})
+    public List<User> getAllByEmail(@PathVariable("email") String email){
+        return service.getByEmail(email);
+    }
 
 }
