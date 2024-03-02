@@ -10,7 +10,7 @@ public interface BookServiceInterface {
     List<Book> getAll();
     Book getById(int id);
     Book create(Book book);
-    List<Book> getByName(String name);
+    Book getByName(String name);
     List<Book> getByAuthor(String author);
     List<Book> getByPublisher(String Publisher);
     List<Book> getByAddress(String address);

@@ -9,7 +9,7 @@ import java.util.UUID;
 
 public interface BookRepositoryInterface extends JpaRepository<Book, Integer> {
     Book findByID(int Id);
-    List<Book> findByName(String name);
+    Book findByName(String name);
     List<Book> findByAuthor(String author);
     List<Book> findByPublisher(String publisher);
     List<Book> findByAddress(String address);

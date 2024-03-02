@@ -33,7 +33,7 @@ public class BookService implements BookServiceInterface {
     }
 
     @Override
-    public List<Book> getByName(String name) {
+    public Book getByName(String name) {
         return repo.findByName(name);
     }
 
