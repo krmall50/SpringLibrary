@@ -10,4 +10,6 @@ public interface UserServiceInterface {
     User getById(UUID id);
     User create(User user);
     List<User> getByNumber(String number);
+    List<User> getByName(String name);
+    List<User> getByEmail(String email);
 }

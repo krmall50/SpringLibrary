@@ -5,6 +5,9 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import java.util.UUID;
+
 @Data
 @Getter
 @Setter
@@ -15,6 +18,7 @@ public abstract class User {
     @GeneratedValue(
             strategy = GenerationType.IDENTITY
     )
+    protected UUID ID;
     protected String name;
     protected String email;
     protected String number;

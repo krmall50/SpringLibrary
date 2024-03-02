@@ -18,8 +18,7 @@ import java.util.UUID;
 @RequestMapping("user")
 public class UserController {
     private final UserServiceInterface service;
-    @Autowired
-    @Lazy
+
     public UserController(UserServiceInterface service) {
         this.service = service;
     }
