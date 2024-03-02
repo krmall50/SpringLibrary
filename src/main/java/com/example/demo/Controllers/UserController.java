@@ -23,15 +23,11 @@ public class UserController {
         this.service = service;
     }
 
-    @GetMapping("Hello")
-    public String hello(){
-        return "hello";
-    }
-    @GetMapping("/")
+    @GetMapping({"", "/"})
     public List<User> getAll(){
         return service.getAll();
     }
-    @GetMapping("/{id}")
+    @GetMapping({"/{id}","/{id}/"})
     public ResponseEntity<User> getById(@PathVariable("id") UUID id){
         User user = service.getById(id);
         if(user == null)
@@ -39,17 +35,25 @@ public class UserController {
 
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
-    @PostMapping("/")
-    public ResponseEntity<User> create(@RequestBody User user){
-        User createdUser = service.create(user);
-        if(createdUser == null)
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+    @PostMapping({"/create","/create/"})
+    public ResponseEntity<User> createUser(@RequestBody User user) {
+        try {
+            User createdUser = service.create(user);
 
-        return new ResponseEntity<>(createdUser, HttpStatus.CREATED); //201
+            if (createdUser != null) {
+                return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
+            } else {
+                return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+        } catch (Exception e) {
+            // Log the exception or handle it accordingly
+            e.printStackTrace();
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
-    @GetMapping("/surname/{user_surname}")
-    public List<User> getAllBySurname(@PathVariable("user_surname") String number){
+    @GetMapping({"/number/{number}","/number/{number}/"})
+    public List<User> getAllByNumber(@PathVariable("number") String number){
         return service.getByNumber(number);
     }
 
